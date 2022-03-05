@@ -5,15 +5,80 @@
     <title>Title</title>
 </head>
 <body>
-
+<p id="rs"></p>
 </body>
 </html>
 <script>
+// bài 2
+//     function alertMessage() {
+//         let x = 1
+//         x += 1
+//         console.log(x)
+//     }
+//     console.log(alertMessage())
 
-    function alertMessage() {
-        let x = 1
-        x += 1
-        console.log(x)
+// Bài 3: Tạo hàm nhận vào hai tham số. Nếu giá trị của tham số thứ nhất lớn hơn tham số thứ hai,
+//     hiển thị hộp thoại thông báo cho người dùng.
+//     Nếu giá trị của tham số thứ nhất nhỏ hơn hoặc bằng tham số thứ hai, trả về tổng của hai tham số.
+
+//  x = +prompt('import parameters : ')
+//  y = +prompt('import parameters 2 : ')
+// function double(x,y) {
+//     console.log(x,y)
+// }
+//
+// console.log(x,y)
+// if (x > y) {
+//     alert('số thứ nhất > số thứ 2')
+// }else {
+//     sum = x + y
+//     console.log(sum)
+// }
+// double();
+// bài4Thêm các hàm alert() vào những vị trí thích hợp trong đoạn mã sau để bạn có thể nhìn thấy giá trị của biến result
+// trước và sau lời gọi hàm. Đoạn mã có dạng như sau:
+// function addNumbers() {
+//     firstNum = 4;
+//     secondNum = 8;
+//     result = firstNum + secondNum;
+//     alert(result)
+//     return result;
+// }
+// console.log(result)
+// result = 0;
+// result = addNumbers();
+// alert(result)
+// console.log(result)
+
+// bài 5
+let star = ["Polaris","Aldebaran","Deneb","Vega","Altair","Dubhe","Regulus"]
+let star1 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"]
+let result=document.getElementById("rs");
+// function nhap(){
+//     let giatri = document.getElementById('hienthi').value;
+//     for ( let i=0;i<star.length;i++){
+//         if (giatri==star[i]){
+//             result.innerHTML = star1[i]
+//             break
+//         }else result.innerHTML = "không tìm thấy ngôi sao nào"
+//     }
+// }
+
+
+function kiemtra() {
+
+    for ( let  i = 0; i < star.length; i++) {
+        if (nhapvao == star[i]) {
+            result.innerHTML = star1[i]
+            break
+        }else result.innerHTML = "không tìm thấy ngôi sao nào"
     }
-    console.log(alertMessage())
+
+}
+let nhapvao = prompt("Nhập tên ngôi sao")
+kiemtra(nhapvao)
+// let c=kiemtra(nhapvao)
+
+
+
 </script>
