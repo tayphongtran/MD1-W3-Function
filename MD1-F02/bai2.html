@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /* Bài 2: Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây dựng được*/
+    // hàm diện tích
+    document.write(Math.PI + '<br>')
+         bankinh = prompt('nhập vào số bán kính =')
+        function dienTichht(bankinh) {
+            let S = (Math.PI)*2*bankinh;
+            return S
+        }
+        function chuViht(bankinh) {
+            let C = (Math.PI)*bankinh*bankinh
+            return C
+        }
+      document.write(dienTichht(bankinh) + ' <br>')
+    document.write(chuViht(bankinh))
+
+
+    // In ra giá trị của PI
+    // document.write(Math.PI);  // Kết quả: 3.141592653589793
+    //
+    // // Hàm tính chu vì hình tròn
+    // function tinhChuViHinhTron(banKinh){
+    //     var chuViHinhTron = (Math.PI) * banKinh * banKinh;
+    //     return chuViHinhTron;
+    // }
+    // document.write(tinhChuViHinhTron(5))
+</script>
