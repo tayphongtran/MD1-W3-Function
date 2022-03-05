@@ -11,14 +11,18 @@
 <script>
     let number = prompt('nhập số : ');
     let count = 0;
-    for (let  N =2; count < number; N += 1) {
-        while (count<number) {
-            count++
-            if (number%2 == 0){
-                document.getElementById('dr').innerHTML =number+ 'không là số nguyên tố'
-            }else {
-                document.getElementById('dr').innerHTML = number+ ' là số nguyên tố'
+    let i,j;
+    for (let  i =2; count < number; i++) {
+        let check = true
+        for (j = 2; j < i; j++) {
+            if (i%j==0){
+                check = false;
+                break
             }
+        }
+        if (check) {
+            count++
+            document.write(i + "<br>")
         }
     }
 
