@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function kiem_tra_snt()
+    {
+        // Biến cờ hiệu
+        var flag = true;
+
+        // Nếu number bé hơn 2 tức là không phải số nguyên tố
+        if (number < 2){
+            flag = false;
+        }
+        else{
+            // lặp từ 2 tới number-1
+            for (var i = 2; i < number-1; i++)
+            {
+                if (number % i == 0){
+                    flag = false;
+                    break;
+                }
+            }
+        }
+
+        // Kiểm tra biến flag
+        if (flag == true){
+            document.write(number + " là số nguyên tố <br/>");
+        }
+        else{
+            document.write(number + " không phải là số nguyên tố <br/>");
+        }
+    }
+    let number = prompt('nhập số cần kiểm tra : ')
+    kiem_tra_snt(number);
+</script>
