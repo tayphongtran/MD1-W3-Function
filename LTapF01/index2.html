@@ -2,43 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Ứng dụng quản lý sản phẩm sử dụng hàm</title>
 </head>
-<body>
-<input type="text" id="proName">
-<button onclick="add()">Thêm</button>
-<div id="list"></div>
-</body>
-</html>
-<script>
- // let arr = [1,2,3,4,5,6]
- // function tb(arr) {
- //     let tb1;
- //     let sum = 0;
- //     for (let i = 0; i < arr.length ; i++) {
- //         sum += arr[i]
- //     }
- //     tb1 = sum/arr.length
- //     return tb1
- // }
- // tb(arr);
- // document.write(tb(arr));
-
-
- let arr = ["samsung","ipad","iphone"];
-display();
-function display() {
-    let rs = "<h2>" + arr.length + " sản phẩm </h2>";
-    for (let  i =0; i < arr.length; i++) {
-        rs += "<h4>" + arr[i] + "</h4>"
+<style>
+    table tr td {
+        border: blue 1px solid;
     }
-    document.getElementById('list').innerHTML  =  rs;
-}
-
-function add() {
-    let productName = document.getElementById('proName').value;
-    arr.push(productName);
-    display();
-}
-
+</style>
+<body>
+<H1>Thêm sản phẩm mới</H1>
+<table>
+    <tr style=" background-color: lightgray ;width: 500px;height: 100px;text-align: center">
+        <td><input type="text" style="width: 270px;height: 50px" placeholder="sản phẩm mới" id="sanphammoi"> </td>
+        <td colspan="2"><button onclick="taoMoiSP()" style="background-color: chartreuse;width: 60px;height: 50px">thêm</button></td>
+    </tr>
+</table>
+<h1>Hiển thị sản phẩm</h1>
+<table>
+    <td colspan="3"><h2>Tên sản phẩm <span id="ghichu" style="float: right;color: red"></span></h2></td>
+    <tbody id="tenSP">
+    <tr>
+        <td>tên</td>
+        <td>sửa</td>
+        <td>xóa</td>
+    </tr>
+    </tbody>
+</table>
+</body>
+<script>
+    let tenSanPham = ['sony','samsung','iphone','nokia','B phone','oppo','xiaomi'];
+    function sanPham(){
+        let noiDung='';
+        for (let i=0;i<tenSanPham.length;i++){
+            noiDung+='<tr >\n' +
+                '        <td style="width: 300px;height: 50px;text-align: center">'+tenSanPham[i]+'</td>\n' +
+                '        <td style="width: 60px;height: 50px;text-align: center"><button style="width: 50px;height: 40px;background-color: chartreuse" onclick="suaTenSP('+i+')">sửa</button></td>\n' +
+                '        <td style="width: 60px;height: 50px;text-align: center"><button style="width: 50px;height: 40px;background-color: chartreuse" onclick="xoaSP('+i+')">xóa</button></td>\n' +
+                '    </tr>'
+        }
+        document.getElementById('tenSP').innerHTML = noiDung;
+        document.getElementById('ghichu').innerHTML = tenSanPham.length + 'sản phẩm';
+    }
+    sanPham()
+    function taoMoiSP(){
+        let newproduct = document.getElementById('sanphammoi').value;
+        tenSanPham.push(newproduct)
+        sanPham()
+        document.getElementById('sanphammoi').value = ''
+    }
+    function xoaSP(a){
+        tenSanPham.splice(a,1);
+        sanPham()
+    }
+    function suaTenSP(b){
+        let newname = prompt('nhập tên sản phẩm :',tenSanPham[b]);
+        tenSanPham[b]=newname;
+        sanPham()
+    }
 </script>
+</html>

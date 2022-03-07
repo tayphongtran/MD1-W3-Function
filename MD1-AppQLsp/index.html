@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<h1>Student manager</h1>
+<hr>
+<span id="validate"></span>
+<input type="text" id="name_student">
+<button onclick="createStudent()">crate</button>
+<input type="text" id="search" oninput="actionSearch()">
+<button onclick="actionSearch()">Search</button>
+<table border="1">
+    <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>EDIT</th>
+        <th>DELETE</th>
+    </tr>
+    <tbody id="drawTable">
+<!--    <tr>-->
+<!--        <td>1</td>-->
+<!--        <td>Anh Tây</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>2</td>-->
+<!--        <td>Linh</td>-->
+<!--    </tr>-->
+    </tbody>
+
+</table>
+
+
+</body>
+</html>
+<script>
+    let studentList = ['Anh Tây', 'Linh', 'cTus']
+    let studentSearch = []
+    function showListStuden() {
+        let drawTable = '';
+        for (let i =0; i < studentList.length; i++) {
+            //    cách 1
+
+            let j = i +1;
+            drawTable+='<tr>'+
+                '<td>'+j+'</td>'+
+                '<td>'+studentList[i]+'</td>'+
+                '<td>'+'<button onclick="editStudent('+i+')">Edit</button>'+'</td>'+
+                '<td>'+'<button onclick="deletestudent('+i+')">Delete</button>'+'</td>'+
+                '</tr>'
+        }
+        document.getElementById('drawTable').innerHTML = drawTable;
+        console.log(drawTable)
+
+    }
+    showListStuden();
+    function createStudent() {
+        let newStudent = document.getElementById('name_student').value;
+        if (newStudent.trim() === '') {
+            document.getElementById('validate').innerHTML = 'the Student is required! please try again!';
+            return;
+        }else {
+            studentList.push(newStudent);
+            document.getElementById('validate').innerHTML = '<span>Create Student Success!!</span>';
+            showListStuden();
+        }
+    }
+    function editStudent(index) {
+        console.log((index))
+        let editStudent = prompt('Enter the name Student to Edit', studentList[index]);
+        studentList[index] = editStudent;
+        showListStuden();
+    }
+
+    function deletestudent(index) {
+        studentList.splice(index,1)
+        showListStuden();
+    }
+    function showListsearch() {
+        let drawTable = '';
+    for (let i =0; i < studentSearch.length; i++) {
+        //    cách 1
+
+        let j = i +1;
+        drawTable+='<tr>'+
+            '<td>'+j+'</td>'+
+            '<td>'+studentSearch[i]+'</td>'+
+            '<td>'+'<button onclick="editStudent('+i+')">Edit</button>'+'</td>'+
+            '<td>'+'<button onclick="deletestudent('+i+')">Delete</button>'+'</td>'+
+            '</tr>'
+    }
+    document.getElementById('drawTable').innerHTML = drawTable;
+    // console.log(drawTable)
+
+    }
+    function actionSearch() {
+        studentSearch.splice(0, studentSearch.length)
+        console.log(studentSearch.splice(0, studentSearch.length))
+
+        let search = document.getElementById('search').value;
+        let searchTLC = search.toLowerCase();
+        let studentListTLC = [];
+        if (search === '') {
+            showListStuden();
+            return;
+        }
+        // Convert mảng vể chữ thường
+        for (let  i =0; i < studentList.length; i++) {
+            studentListTLC.push(studentList[i].toLowerCase())
+        }
+        for (let i = 0; i < studentListTLC.length; i++) {
+            if (searchTLC === studentListTLC[i]) {
+                studentSearch.push(studentList[i]);
+            }
+        }
+        showListsearch();
+    }
+
+
+</script>
